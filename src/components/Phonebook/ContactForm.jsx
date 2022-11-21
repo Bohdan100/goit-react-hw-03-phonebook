@@ -10,7 +10,7 @@ import {
 } from './Phonebook.styled';
 
 class ContactForm extends Component {
-  static onChangeContacts = PropTypes.func.isRequired;
+  static propTypes = { onChangeContacts: PropTypes.func.isRequired };
 
   state = { name: '', number: '' };
 
