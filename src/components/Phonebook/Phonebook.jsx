@@ -27,13 +27,6 @@ export class Phonebook extends Component {
     if (prevParsedContacts) {
       this.setState({ contacts: prevParsedContacts });
     }
-
-    const prevFilter = localStorage.getItem('Filter');
-    const prevParsedFilter = JSON.parse(prevFilter);
-
-    if (prevParsedFilter) {
-      this.setState({ filter: prevParsedFilter });
-    }
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -42,13 +35,6 @@ export class Phonebook extends Component {
 
     if (nextContacts !== prevContacts) {
       localStorage.setItem('Contacts', JSON.stringify(nextContacts));
-    }
-
-    const nextFilter = this.state.filter;
-    const prevFilter = prevState.filter;
-
-    if (nextFilter !== prevFilter) {
-      localStorage.setItem('Filter', JSON.stringify(nextFilter));
     }
   }
 

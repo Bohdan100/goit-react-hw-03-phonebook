@@ -17,33 +17,6 @@ class ContactForm extends Component {
   nameId = shortid.generate();
   telId = shortid.generate();
 
-  componentDidMount() {
-    const prevFormData = localStorage.getItem('FormData');
-    const prevParsedFormData = JSON.parse(prevFormData);
-
-    if (prevParsedFormData) {
-      this.setState({
-        name: prevParsedFormData.name,
-        number: prevParsedFormData.number,
-      });
-    }
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    const nextName = this.state.name;
-    const prevName = prevState.name;
-
-    const nextNumber = this.state.number;
-    const prevNumber = prevState.number;
-
-    if (nextName !== prevName || nextNumber !== prevNumber) {
-      localStorage.setItem(
-        'FormData',
-        JSON.stringify({ name: nextName, number: nextNumber })
-      );
-    }
-  }
-
   reset = () => {
     this.setState({
       name: '',
